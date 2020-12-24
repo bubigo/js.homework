@@ -1,0 +1,10 @@
+
+
+function showClock() {
+    const date = new Date;
+    console.log('${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}');
+
+}
+setInterval(showClock, 1000);
+
+

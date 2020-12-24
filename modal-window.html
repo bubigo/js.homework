@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TMS</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        p{
+            margin:0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding:50px 0;
+
+        }
+        .modal {
+            position:relative;
+            background-color: red;
+            max-width: 500px;
+            min-width: 270px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 50px;
+            margin-top:50px;
+
+        }
+
+        .btn{
+            cursor: pointer;
+            border: none;
+            background-color: #000;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 5px;
+            outline: none;
+            padding: 20px 50px;
+
+
+        }
+        .close{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 26px;
+            height: 26px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            background-color: #fff;
+            padding: 0;
+        }
+        .close::before, .close::after {
+            position: absolute;
+            top: 5px;
+            left: 12px;
+            content: ' ';
+            height: 15px;
+            width: 2px;
+            background-color: #000;
+        }
+        .close::before {
+            transform: rotate(45deg);
+        }
+        .close::after {
+            transform: rotate(-45deg);
+        }
+
+    </style>
+</head>
+<body>
+<script>
+    const fragment = document.createDocumentFragment();
+    const container = document.createElement('div');
+    const buttonClick = document.createElement('button');
+    const modalWindow = document.createElement('div');
+    const buttonClose = document.createElement('button');
+
+    container.appendChild(buttonClick);
+    container.appendChild(modalWindow);
+    modalWindow.innerHTML = '<div><p>We Wish You A Merry Christmas</p><p>And</p><p>A Happy New Year!</p></div> ';
+    modalWindow.appendChild(buttonClose);
+
+    fragment.appendChild(container);
+    document.body.append(fragment);
+
+
+    container.classList.add('container');
+    modalWindow.classList.add('modal');
+    buttonClick.classList.add('btn');
+    buttonClose.classList.add('close');
+
+    buttonClick.innerText = 'Click me!';
+
+    modalWindow.hidden = true;
+    buttonClick.onclick = function() {
+        modalWindow.hidden = false;
+
+    };
+    buttonClose.onclick = function() {
+        modalWindow.hidden = true;
+    }
+
+</script>
+
+</body>
+</html>
